@@ -10,7 +10,6 @@ const orderRoute = require('./routes/order')
 const midtransRoute = require('./routes/midtrans')
 const cors = require('cors')
 // const stripeRoute = require('./routes/stripe')
-const cors = require('cors')
 dotenv.config()
 
 mongoose
