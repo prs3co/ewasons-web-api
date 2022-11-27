@@ -7,6 +7,9 @@ const authRoute = require('./routes/auth')
 const productRoute = require('./routes/product')
 const cartRoute = require('./routes/cart')
 const orderRoute = require('./routes/order')
+const stripeRoute = require('./routes/stripe')
+const midtransRoute = require('./routes/midtrans')
+const cors = require('cors')
 
 dotenv.config()
 
@@ -21,12 +24,15 @@ mongoose
 //   console.log("test is succesfull");
 // })
 
+app.use(cors())
 app.use(express.json())
 app.use('/api/auth', authRoute)
 app.use('/api/users', userRoute)
 app.use('/api/products', productRoute)
 app.use('/api/carts', cartRoute)
 app.use('/api/orders', orderRoute)
+app.use('/api/checkout', stripeRoute)
+app.get('/api/midtrans', midtransRoute)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
