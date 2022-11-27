@@ -98,7 +98,7 @@ const handleTestRequest = (req, res) => {
       Authorization:
       // `Basic ${Buffer.from(process.env.MIDTRANS_KEY).toString('base64')}`
       'Basic ' +
-      Buffer.from(process.env.MIDTRANS_KEY).toString('base64')
+      Buffer.from(process.env.MIDTRANS_SB_KEY).toString('base64')
       // Above is API server key for the Midtrans account, encoded to base64
     },
     data:
