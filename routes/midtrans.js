@@ -1,7 +1,6 @@
-const router = require('express').Router()
-
+// const router = require('express')
 const midtransClient = require('midtrans-client')
-// Create Snap API instance
+
 const snap = new midtransClient.Snap({
   // Set to true if you want Production Environment (accept real transaction).
   isProduction: false,
@@ -24,11 +23,25 @@ const parameter = {
   }
 }
 
-snap.createTransaction(parameter)
+const snapRoute = snap.createTransaction(parameter)
   .then((transaction) => {
     // transaction token
     const transactionToken = transaction.token
-    console.log('transactionToken:', transactionToken)
+    return ('transactionToken:', transactionToken)
   })
 
-module.exports = router
+// router.post('/payment', (req, res) => {
+//   stripe.charges.create({
+//     source: req.body.tokenId,
+//     amount: req.body.amount,
+//     currency: 'sgd'
+//   }, (stripeErr, stripeRes) => {
+//     if (stripeErr) {
+//       res.status(500).json(stripeErr)
+//     } else {
+//       res.status(200).json(stripeRes)
+//     }
+//   })
+// })
+
+module.exports = snapRoute
