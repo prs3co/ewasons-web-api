@@ -7,10 +7,9 @@ const authRoute = require('./routes/auth')
 const productRoute = require('./routes/product')
 const cartRoute = require('./routes/cart')
 const orderRoute = require('./routes/order')
-const stripeRoute = require('./routes/stripe')
+// const stripeRoute = require('./routes/stripe')
 const midtransRoute = require('./routes/midtrans')
 const cors = require('cors')
-
 dotenv.config()
 
 mongoose
@@ -31,8 +30,9 @@ app.use('/api/users', userRoute)
 app.use('/api/products', productRoute)
 app.use('/api/carts', cartRoute)
 app.use('/api/orders', orderRoute)
-app.use('/api/checkout', stripeRoute)
-app.get('/api/midtrans', midtransRoute)
+// app.use('/api/checkout', stripeRoute)
+app.get('/api/checkout', midtransRoute.handleMainRequest)
+app.get('/api/checkoutsb', midtransRoute.handleTestRequest)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
