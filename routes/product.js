@@ -62,9 +62,9 @@ router.get('/', async (req, res) => {
         categories: {
           $in: [queryCategories]
         }
-      }).sort({ createdAt: -1 })
+      })
     } else {
-      products = await Product.find().sort({ createdAt: -1 })
+      products = await Product.find()
     }
 
     res.status(200).json(products)
