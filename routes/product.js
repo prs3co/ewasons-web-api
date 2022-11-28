@@ -56,15 +56,15 @@ router.get('/', async (req, res) => {
     let products
 
     if (queryNew) {
-      products = await Product.find().sort({ createdAt: -1 }).limit(1)
+      products = await Product.find().sort({ createdAt: -1 }).limit(6)
     } else if (queryCategories) {
       products = await Product.find({
         categories: {
           $in: [queryCategories]
         }
-      })
+      }).sort({ createdAt: -1 })
     } else {
-      products = await Product.find()
+      products = await Product.find().sort({ createdAt: -1 })
     }
 
     res.status(200).json(products)
