@@ -50,13 +50,13 @@ router.get('/find/:id', async (req, res) => {
 
 // get all product
 router.get('/', async (req, res) => {
-  const queryNew = req.query.new
+  const queryRecomendation = req.query.recomendation
   const queryCategories = req.query.categories
   try {
     let products
 
-    if (queryNew) {
-      products = await Product.find().sort({ createdAt: -1 }).limit(6)
+    if (queryRecomendation) {
+      products = await Product.find().limit(8)
     } else if (queryCategories) {
       products = await Product.find({
         categories: {
