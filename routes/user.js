@@ -80,6 +80,11 @@ router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
           _id: '$month',
           total: { $sum: 1 }
         }
+      },
+      { 
+        $sort : { 
+          _id : -1 
+        }
       }
     ])
     res.status(200).json(stats)
