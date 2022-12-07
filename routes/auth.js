@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const { body, validationResult } = require('express-validator')
 
 // register
-router.post('/register', body('username').isLength({ min: 5 }), body('email').isEmail(), body('password').isLength({ min: 5 }), async (req, res) => {
+router.post('/register', body('username').isLength({ min: 1 }), body('email').isEmail(), body('password').isLength({ min: 8 }), async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
