@@ -2,14 +2,20 @@ const User = require('../models/User')
 const router = require('express').Router()
 const CryptoJS = require('crypto-js')
 const jwt = require('jsonwebtoken')
+const { body, validationResult } = require('express-validator')
 
 // register
-router.post('/register', async (req, res) => {
+router.post('/register', body('username').isLength({ min: 5 }), body('email').isEmail(), body('password').isLength({ min: 5 }), async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
     password: CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SECRET).toString()
   })
+
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() })
+  }
 
   try {
     const savedUser = await newUser.save()
