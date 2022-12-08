@@ -30,7 +30,11 @@ const ProductSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true
-    }
+    },
+    sellerId: {
+      type: String,
+      required: true
+    },
   },
   { timestamps: true }
 )
