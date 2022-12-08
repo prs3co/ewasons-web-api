@@ -34,7 +34,7 @@ const ProductSchema = new mongoose.Schema(
     sellerId: {
       type: String,
       required: true
-    },
+    }
   },
   { timestamps: true }
 )
