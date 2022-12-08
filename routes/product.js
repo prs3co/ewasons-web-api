@@ -73,4 +73,19 @@ router.get('/', async (req, res) => {
   }
 })
 
+// get user products
+router.get('/shop/:sellerId', verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const products = await Product.find({
+      sellerId: {
+        $in: [req.params.sellerId]
+      }
+    })
+
+    res.status(200).json(products)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
 module.exports = router
