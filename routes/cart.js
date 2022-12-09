@@ -19,10 +19,11 @@ router.post('/', verifyToken, async (req, res) => {
 })
 
 // update
-router.put('/:id/:cartId', verifyTokenAndAuthorization, async (req, res) => {
+router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  const queryCartId = req.query.cartId
   try {
     const updatedCart = await Cart.findByIdAndUpdate(
-      req.params.cartId,
+      queryCartId,
       {
         $set: req.body
       }, { new: true })
