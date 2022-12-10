@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
       // const snapUrl = snapResponse.data.redirect_url
       // transaction token
       const transactionToken = transaction.token
-      res.status(200).send(transactionToken)
+      res.status(200).send({ transactionToken })
     })
 })
 
