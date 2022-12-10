@@ -26,22 +26,50 @@ const handleMainRequest = (req, res) => {
       {
         transaction_details: {
           order_id: `CustOrder-102${getCurrentTimestamp()}`,
-          gross_amount: req.body.amount
+          gross_amount: 13000
         },
         credit_card: {
           secure: true
         },
         item_details: [
           {
-            id: req.body.product._id,
-            price: req.body.product.price,
-            quantity: req.body.product.quantity,
-            name: req.body.product.name
+            id: 'a01',
+            price: 7000,
+            quantity: 1,
+            name: 'Kabel Bekas'
+          },
+          {
+            id: 'b02',
+            price: 3000,
+            quantity: 2,
+            name: 'Lampu Bekas'
           }
         ],
         customer_details: {
-          username: req.body.user.username,
-          email: req.body.user.email
+          first_name: 'Budi',
+          last_name: 'Susanto',
+          email: 'budisusanto@example.com',
+          phone: '+628123456789',
+          billing_address: {
+            first_name: 'Budi',
+            last_name: 'Susanto',
+            email: 'budisusanto@example.com',
+            phone: '08123456789',
+            address: 'Sudirman No.12',
+            city: 'Jakarta',
+            postal_code: '12190',
+            country_code: 'IDN'
+          },
+          shipping_address: {
+            first_name: 'Budi',
+            last_name: 'Susanto',
+            email: 'budisusanto@example.com',
+            phone: '0812345678910',
+            address: 'Sudirman',
+            city: 'Jakarta',
+            postal_code: '12190',
+            country_code: 'IDN'
+          }
         }
       }
   }).then(
@@ -78,22 +106,50 @@ const handleTestRequest = (req, res) => {
       {
         transaction_details: {
           order_id: `CustOrder-102${getCurrentTimestamp()}`,
-          gross_amount: req.body.amount
+          gross_amount: 13000
         },
         credit_card: {
           secure: true
         },
         item_details: [
           {
-            id: req.body.product._id,
-            price: req.body.product.price,
-            quantity: req.body.product.quantity,
-            name: req.body.product.name
+            id: 'a01',
+            price: 7000,
+            quantity: 1,
+            name: 'Kabel Bekas'
+          },
+          {
+            id: 'b02',
+            price: 3000,
+            quantity: 2,
+            name: 'Lampu Bekas'
           }
         ],
         customer_details: {
-          username: req.body.user.username,
-          email: req.body.user.email
+          first_name: 'Budi',
+          last_name: 'Susanto',
+          email: 'budisusanto@example.com',
+          phone: '+628123456789',
+          billing_address: {
+            first_name: 'Budi',
+            last_name: 'Susanto',
+            email: 'budisusanto@example.com',
+            phone: '08123456789',
+            address: 'Sudirman No.12',
+            city: 'Jakarta',
+            postal_code: '12190',
+            country_code: 'IDN'
+          },
+          shipping_address: {
+            first_name: 'Budi',
+            last_name: 'Susanto',
+            email: 'budisusanto@example.com',
+            phone: '0812345678910',
+            address: 'Sudirman',
+            city: 'Jakarta',
+            postal_code: '12190',
+            country_code: 'IDN'
+          }
         }
       }
   }).then(
