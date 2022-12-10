@@ -9,7 +9,7 @@ const getCurrentTimestamp = () => {
 }
 
 // create
-router.post('/', verifyToken, async (req, res) => {
+router.post('/', async (req, res) => {
   const snap = new midtransClient.Snap({
     // Set to true if you want Production Environment (accept real transaction).
     isProduction: false,
