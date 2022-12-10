@@ -31,8 +31,8 @@ app.use('/api/products', productRoute)
 app.use('/api/carts', cartRoute)
 app.use('/api/orders', orderRoute)
 // app.use('/api/checkout', stripeRoute)
-app.get('/api/checkout', midtransRoute.handleMainRequest)
-app.get('/api/checkoutsb', midtransRoute.handleTestRequest)
+app.post('/api/checkout', midtransRoute.handleMainRequest)
+app.post('/api/checkoutsb', midtransRoute.handleTestRequest)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
