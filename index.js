@@ -23,8 +23,11 @@ mongoose
 // app.get('/api/test', () => {
 //   console.log("test is succesfull");
 // })
+const corsOptions = {
+  origin: 'http://localhost:3000'
+}
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/api/auth', authRoute)
 app.use('/api/users', userRoute)
