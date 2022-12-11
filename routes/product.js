@@ -1,11 +1,11 @@
 const Product = require('../models/Product')
 const {
-  verifyTokenAndAdmin, verifyTokenAndAuthorization
+  verifyTokenAndAdmin, verifyTokenAndAuthorization, verifyToken
 } = require('./verifyToken')
 const router = require('express').Router()
 
 // create
-router.post('/', verifyTokenAndAuthorization, async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   const newProduct = new Product(req.body)
 
   try {
