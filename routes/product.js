@@ -73,12 +73,12 @@ router.get('/', async (req, res) => {
   }
 })
 
-// get user products
-router.get('/shop/:sellerId', verifyTokenAndAuthorization, async (req, res) => {
+// get user products (put userid)
+router.get('/shop/:id', verifyTokenAndAuthorization, async (req, res) => {
   try {
     const products = await Product.find({
       sellerId: {
-        $in: [req.params.sellerId]
+        $in: [req.params.id]
       }
     })
 
