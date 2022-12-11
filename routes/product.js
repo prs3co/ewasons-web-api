@@ -1,6 +1,6 @@
 const Product = require('../models/Product')
 const {
-  verifyTokenAndAdmin
+  verifyTokenAndAdmin, verifyTokenAndAuthorization
 } = require('./verifyToken')
 const router = require('express').Router()
 
@@ -74,7 +74,7 @@ router.get('/', async (req, res) => {
 })
 
 // get user products
-router.get('/shop/:sellerId', verifyTokenAndAdmin, async (req, res) => {
+router.get('/shop/:sellerId', verifyTokenAndAuthorization, async (req, res) => {
   try {
     const products = await Product.find({
       sellerId: {
