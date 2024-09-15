@@ -43,7 +43,7 @@ app.use('/api/checkoutsb', midtransRouteSB)
 app.use('/api/ping', pingRoute)
 
 const healthCheck = async () => {
-  const pingUrl = 'http://localhost:5000/api/ping/heartbeat'
+  const pingUrl = `${process.env.MAIN_URL}/api/ping/heartbeat`
   try {
     await axios.get(pingUrl)
     console.error('Health check success')
